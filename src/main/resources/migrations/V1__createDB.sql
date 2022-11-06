@@ -1,1 +1,0 @@
-create database hotel_network;

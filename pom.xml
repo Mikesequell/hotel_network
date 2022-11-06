@@ -69,7 +69,7 @@
 					<locations>
 						<location>filesystem:src/main/resources/migrations</location>
 					</locations>
-					<url>jdbc:mysql://localhost:3306/hotel</url>
+					<url>jdbc:mysql://localhost:3306/hotel_network</url>
 					<user>admin</user>
 					<password>admin</password>
 				</configuration>
