@@ -1,4 +1,4 @@
-package com.hotel.projectHotel.entity;
+package com.hotel.projectHotel.model.entity;
 
 import lombok.Data;
 
