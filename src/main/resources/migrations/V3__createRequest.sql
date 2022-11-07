@@ -7,7 +7,7 @@ create table request
     departureDate          varchar(32) not null,
     offeredPriceForPayment int,
     paymentStatus          boolean     not null,
-    customerId             int         not null
-        foreign key (customerId) references customer (id)
+    customerId             int         not null,
+    foreign key (customerId) references customer (id)
 
 );
