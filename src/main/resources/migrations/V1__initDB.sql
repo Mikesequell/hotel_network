@@ -62,8 +62,8 @@ create table request
     offeredPriceForPayment int,
     paymentStatus          boolean not null,
     userId                 int     not null,
-    offeredHotelId                int,
-    offeredApartmentId            int,
+    offeredHotelId         int,
+    offeredApartmentId     int,
     foreign key (offeredHotelId) references hotel (id),
     foreign key (offeredApartmentId) references apartment (id),
     foreign key (userId) references user (id)

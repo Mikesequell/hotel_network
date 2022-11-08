@@ -11,5 +11,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToOne
+    @JoinColumn(name = "roleId")
     private Role roleId;
 }

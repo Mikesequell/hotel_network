@@ -17,8 +17,10 @@ public class Apartment {
     @Column
     private int price;
     @ManyToOne
+    @JoinColumn(name = "userId")
     private User userId;
     @ManyToOne
+    @JoinColumn(name = "hotelId")
     private Hotel hotelId;
 
 }

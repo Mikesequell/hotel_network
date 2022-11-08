@@ -24,9 +24,12 @@ public class Request {
     @Column
     private boolean paymentStatus;
     @ManyToOne
+    @JoinColumn(name = "userId")
     private User userId;
     @OneToOne
+    @JoinColumn(name = "hotelId")
     private Hotel hotelId;
     @OneToOne
+    @JoinColumn(name = "apartmentId")
     private Apartment apartmentId;
 }
