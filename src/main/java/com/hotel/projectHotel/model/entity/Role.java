@@ -6,14 +6,10 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Login {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private String login;
-    @Column
-    private String password;
-    @OneToOne
-    private User userId;
+    private String role;
 }

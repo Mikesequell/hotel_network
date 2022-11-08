@@ -2,25 +2,22 @@ package com.hotel.projectHotel.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Hotel {
     @Id
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
-    String name;
+    private String name;
     @Column
-    String address;
+    private String address;
     @Column
-    int allQuantityApartments;
+    private int allQuantityApartments;
     @Column
-    int freeApartments;
+    private int freeApartments;
     @Column
-    int reservedApartments;
-    @Column
-    int occupiedApartments;
+    private int occupiedApartments;
 }

@@ -8,16 +8,17 @@ import javax.persistence.*;
 @Data
 public class Apartment {
     @Id
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
-    int comfortableRank;
+    private int comfortableRank;
     @Column
-    int sleepingPlaces;
+    private int sleepingPlaces;
     @Column
-    int price;
+    private int price;
     @ManyToOne
-    Customer customerId;
+    private User userId;
     @ManyToOne
-    Hotel hotelId;
+    private Hotel hotelId;
 
 }

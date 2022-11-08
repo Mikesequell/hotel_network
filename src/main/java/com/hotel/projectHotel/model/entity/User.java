@@ -4,16 +4,12 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
 @Data
-public class Login {
+@Entity
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
-    private String login;
-    @Column
-    private String password;
     @OneToOne
-    private User userId;
+    private Role roleId;
 }

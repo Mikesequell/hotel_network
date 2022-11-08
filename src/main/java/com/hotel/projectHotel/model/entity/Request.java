@@ -2,30 +2,31 @@ package com.hotel.projectHotel.model.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.sql.Date;
 
 @Data
 @Entity
 public class Request {
-    @Id
-    int id;
+    @Id()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
-    int comfortableRank;
+    private int comfortableRank;
     @Column
-    int sleepingPlaces;
+    private int sleepingPlaces;
     @Column
-    String arrivalDate;
+    private Date arrivalDate;
     @Column
-    String departureDate;
+    private Date departureDate;
     @Column
-    int daysQuantity;
+    private int offeredPriceForPayment;
     @Column
-    int price;
-    @Column
-    boolean paymentStatus;
+    private boolean paymentStatus;
     @ManyToOne
-    Customer customerId;
+    private User userId;
+    @OneToOne
+    private Hotel hotelId;
+    @OneToOne
+    private Apartment apartmentId;
 }
