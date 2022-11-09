@@ -1,17 +1,17 @@
 create table role
 (
     id   int auto_increment primary key,
-    role varchar(64) not null
+    role varchar(256) not null
 );
 
 create table hotel
 (
-    id                    int auto_increment primary key,
-    name                  varchar(64)  not null,
-    address               varchar(256) not null,
-    allQuantityApartments int,
-    freeApartments        int,
-    occupiedApartments    int
+    id                      int auto_increment primary key,
+    name                    varchar(64)  not null,
+    address                 varchar(256) not null,
+    all_quantity_apartments int,
+    free_apartments          int,
+    occupied_apartments      int
 );
 
 create table user
@@ -60,7 +60,7 @@ create table request
     arrivalDate            DATE    not null,
     departureDate          DATE    not null,
     offeredPriceForPayment int,
-    paymentStatus          boolean not null,
+    status                 boolean not null,
     userId                 int     not null,
     offeredHotelId         int,
     offeredApartmentId     int,

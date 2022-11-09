@@ -14,10 +14,10 @@ public class Hotel {
     private String name;
     @Column
     private String address;
-    @Column
-    private int allQuantityApartments;
-    @Column
+    @Column(name = "all_quantity_apartments")
+    private Integer allQuantityApartments;
+    @Column(name = "free_apartments")
     private int freeApartments;
-    @Column
+    @Column(name = "occupied_apartments")
     private int occupiedApartments;
 }

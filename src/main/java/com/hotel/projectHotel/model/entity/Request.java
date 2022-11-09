@@ -22,14 +22,14 @@ public class Request {
     @Column
     private int offeredPriceForPayment;
     @Column
-    private boolean paymentStatus;
+    private boolean status;
     @ManyToOne
     @JoinColumn(name = "userId")
     private User userId;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "hotelId")
     private Hotel hotelId;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "apartmentId")
     private Apartment apartmentId;
 }
