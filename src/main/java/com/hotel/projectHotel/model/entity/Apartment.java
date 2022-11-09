@@ -10,17 +10,17 @@ public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(name = "comfortable_rank")
     private int comfortableRank;
-    @Column
+    @Column(name = "sleeping_places")
     private int sleepingPlaces;
     @Column
     private int price;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User userId;
     @ManyToOne
-    @JoinColumn(name = "hotelId")
+    @JoinColumn(name = "hotel_id")
     private Hotel hotelId;
 
 }

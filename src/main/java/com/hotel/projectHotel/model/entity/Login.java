@@ -15,6 +15,6 @@ public class Login {
     @Column
     private String password;
     @OneToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User userId;
 }

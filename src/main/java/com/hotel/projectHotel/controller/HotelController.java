@@ -16,6 +16,7 @@ public class HotelController {
 
     @GetMapping("/hotel/{id}")
     public Hotel getHotel(@PathVariable Integer id) {
+        
         return hotelService.findById(id);
     }
 

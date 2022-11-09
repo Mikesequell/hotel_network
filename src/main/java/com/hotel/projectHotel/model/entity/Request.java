@@ -11,25 +11,25 @@ public class Request {
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
+    @Column(name = "comfortable_rank")
     private int comfortableRank;
-    @Column
+    @Column(name = "sleeping_places")
     private int sleepingPlaces;
-    @Column
+    @Column(name = "arrival_date")
     private Date arrivalDate;
-    @Column
+    @Column(name = "departure_date")
     private Date departureDate;
-    @Column
+    @Column(name = "offered_price_for_payment")
     private int offeredPriceForPayment;
     @Column
     private boolean status;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User userId;
     @ManyToOne
-    @JoinColumn(name = "hotelId")
+    @JoinColumn(name = "hotel_id")
     private Hotel hotelId;
     @ManyToOne
-    @JoinColumn(name = "apartmentId")
+    @JoinColumn(name = "apartment_id")
     private Apartment apartmentId;
 }

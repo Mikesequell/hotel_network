@@ -10,6 +10,7 @@ import javax.persistence.Id;
 @Entity(name = "user_data")
 public class UserData {
     @Id
+    @Column(name = "user_id")
     int userId;
     @Column
     String name;
@@ -17,6 +18,6 @@ public class UserData {
     String surname;
     @Column
     String passport;
-    @Column
+    @Column(name = "telephone_number")
     String telephoneNumber;
 }
