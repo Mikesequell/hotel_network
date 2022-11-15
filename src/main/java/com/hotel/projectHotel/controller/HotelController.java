@@ -23,9 +23,9 @@ public class HotelController {
 
     @GetMapping("/hotel")
     public String getHotel(@RequestParam Integer id, Model model) {
-        var apartments = apartmentRepository.findByHotelId(id);
+        var apartments = apartmentRepository.findByHotelIdId(id);
         model.addAttribute("apartments", apartments);
-        return "listOfApartmentByHotelId";
+        return "listOfApartmentsByHotelId";
     }
 
     @GetMapping("/hotels")
