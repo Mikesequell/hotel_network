@@ -10,26 +10,26 @@ import java.sql.Date;
 public class Request {
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "comfortable_rank")
-    private int comfortableRank;
+    private Integer comfortableRank;
     @Column(name = "sleeping_places")
-    private int sleepingPlaces;
+    private Integer sleepingPlaces;
     @Column(name = "arrival_date")
     private Date arrivalDate;
     @Column(name = "departure_date")
     private Date departureDate;
     @Column(name = "offered_price_for_payment")
-    private int offeredPriceForPayment;
+    private Integer offeredPriceForPayment;
     @Column
     private boolean status;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User userId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id")
     private Hotel hotelId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "apartment_id")
     private Apartment apartmentId;
 }

@@ -9,17 +9,17 @@ import javax.persistence.*;
 public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "comfortable_rank")
     private Integer comfortableRank;
     @Column(name = "sleeping_places")
     private Integer sleepingPlaces;
     @Column
     private Integer price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User userId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id")
     private Hotel hotelId;
 
