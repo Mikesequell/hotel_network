@@ -23,7 +23,7 @@ public class HotelController {
 
     @GetMapping("/hotel")
     public String getHotel(@RequestParam Integer id, Model model) {
-        var apartments = apartmentRepository.findApartmentByHotelId(id);
+        var apartments = apartmentRepository.findByHotel_Id(id);
         model.addAttribute("apartments", apartments);
         return "listOfApartmentByHotelId";
     }
