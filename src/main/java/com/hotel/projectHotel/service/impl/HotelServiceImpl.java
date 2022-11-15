@@ -2,6 +2,7 @@ package com.hotel.projectHotel.service.impl;
 
 import com.hotel.projectHotel.model.entity.Hotel;
 import com.hotel.projectHotel.model.repositiry.HotelRepository;
+import com.hotel.projectHotel.model.repositiry.UserRepository;
 import com.hotel.projectHotel.service.HotelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

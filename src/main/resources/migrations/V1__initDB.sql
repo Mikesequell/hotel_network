@@ -10,8 +10,7 @@ create table hotel
     name                    varchar(64)  not null,
     address                 varchar(256) not null,
     all_quantity_apartments int,
-    free_apartments         int,
-    occupied_apartments     int
+    free_apartments         int
 );
 
 create table user
@@ -68,3 +67,40 @@ create table request
     foreign key (offered_apartment_id) references apartment (id),
     foreign key (user_id) references user (id)
 );
+
+INSERT INTO hotel (name, address, all_quantity_apartments) values ('First Hotel', 'ul. Tut 10', '10');
+
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (1, 1, 300, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (2, 1, 400, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 800, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 800, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 800, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 2, 800, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 2, 800, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 3, 1000, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 3, 1000, 1);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (5, 3, 1300, 1);
+
+
+INSERT INTO hotel (name, address, all_quantity_apartments) values ('Second Hotel', 'ul. Tam 2a', '10');
+
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (1, 1, 800, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (2, 1, 900, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 1300, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 1300, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (3, 2, 1300, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 2, 1300, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 2, 1300, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 3, 1500, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (4, 3, 1500, 2);
+INSERT INTO apartment (comfortable_rank, sleeping_places, price, hotel_id) values (5, 3, 1800, 2);
+
+INSERT INTO role (role) value ('admin');
+INSERT INTO role (role) value ('user');
+
+INSERT INTO user (id, role_id) VALUES (1, 1);
+
+INSERT INTO login (login, password, user_id) VALUES ('admin', 'admin', 1);
+
+
+

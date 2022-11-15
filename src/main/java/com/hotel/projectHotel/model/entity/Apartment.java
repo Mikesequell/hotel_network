@@ -11,11 +11,11 @@ public class Apartment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "comfortable_rank")
-    private int comfortableRank;
+    private Integer comfortableRank;
     @Column(name = "sleeping_places")
-    private int sleepingPlaces;
+    private Integer sleepingPlaces;
     @Column
-    private int price;
+    private Integer price;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User userId;
