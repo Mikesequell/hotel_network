@@ -7,7 +7,7 @@
     </head>
     <body>
         <c:forEach items="${hotels}" var="hotel">
-            <a href="<c:url value="/hotel?id=${hotel.id}"/>">${hotel.name}</a> <br>
+            <a href="<c:url value="/hotel?id=${hotel.id}"/>">${hotel.name} - free apartments: ${hotel.freeApartments}</a> <br>
         </c:forEach>
     </body>
 </html>
