@@ -1,6 +1,7 @@
 package com.hotel.projectHotel.service.impl;
 
 import com.hotel.projectHotel.dto.HotelDto;
+import com.hotel.projectHotel.dto.HotelRequestDto;
 import com.hotel.projectHotel.model.entity.Hotel;
 import com.hotel.projectHotel.model.repositiry.HotelRepository;
 import com.hotel.projectHotel.model.repositiry.UserRepository;
@@ -30,11 +31,24 @@ public class HotelServiceImpl implements HotelService {
             var hotelDto = new HotelDto();
             hotelDto.setId(hotel.getId());
             hotelDto.setName(hotel.getName());
-            hotelDto.setName(hotel.getName());
+            hotelDto.setAddress(hotel.getAddress());
             hotelDto.setFreeApartments(hotel.getFreeApartments());
             hotelsDto.add(hotelDto);
         });
         return hotelsDto;
+    }
+
+    @Override
+    public List<HotelRequestDto> getHotelRequestDto() {
+        var hotels = hotelRepository.findAll();
+        var hotelsRequestDto = new ArrayList<HotelRequestDto>();
+        hotels.forEach(hotel -> {
+            var hotelRequestDto = new HotelRequestDto();
+            hotelRequestDto.setId(hotel.getId());
+            hotelRequestDto.setName(hotel.getName());
+            hotelsRequestDto.add(hotelRequestDto);
+        });
+        return hotelsRequestDto;
     }
 
 }

@@ -8,7 +8,7 @@ import java.sql.Date;
 @Data
 @Entity
 public class Request {
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "comfortable_rank")
