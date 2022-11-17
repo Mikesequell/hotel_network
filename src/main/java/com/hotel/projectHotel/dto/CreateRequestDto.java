@@ -1,6 +1,7 @@
 package com.hotel.projectHotel.dto;
 
 import com.hotel.projectHotel.model.entity.Hotel;
+import com.hotel.projectHotel.model.entity.Status;
 import com.hotel.projectHotel.model.entity.User;
 import com.hotel.projectHotel.utils.CurrentDateToString;
 import lombok.Data;

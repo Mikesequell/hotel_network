@@ -21,15 +21,16 @@ public class Request {
     private Date departureDate;
     @Column(name = "offered_price_for_payment")
     private Integer offeredPriceForPayment;
-    @Column
-    private boolean status;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status")
+    private Status status;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User userId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotel_id")
+    @JoinColumn(name = "offered_hotel_id")
     private Hotel hotelId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "apartment_id")
+    @JoinColumn(name = "offered_apartment_id")
     private Apartment apartmentId;
 }
