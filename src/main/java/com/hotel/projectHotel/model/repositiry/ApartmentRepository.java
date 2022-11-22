@@ -9,4 +9,7 @@ import java.util.List;
 @Repository
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
     List<Apartment> findByHotelIdId(Integer id);
+
+    //    List<Apartment> findByHotelIdIdAndStatusIdNameIgnoreCase(Integer id, String name);
+    List<Apartment> findByStatusId_Name(String name);
 }

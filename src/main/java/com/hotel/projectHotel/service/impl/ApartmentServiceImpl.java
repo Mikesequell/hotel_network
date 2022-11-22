@@ -1,7 +1,7 @@
 package com.hotel.projectHotel.service.impl;
 
 import com.hotel.projectHotel.dto.ApartmentDto;
-import com.hotel.projectHotel.dto.ApartmentWithoutUserDto;
+import com.hotel.projectHotel.dto.FreeApartmentDto;
 import com.hotel.projectHotel.model.repositiry.ApartmentRepository;
 import com.hotel.projectHotel.service.ApartmentService;
 import lombok.RequiredArgsConstructor;
@@ -26,26 +26,27 @@ public class ApartmentServiceImpl implements ApartmentService {
             apartmentDto.setPrice(apartment.getPrice());
             apartmentDto.setComfortableRank(apartment.getComfortableRank());
             apartmentDto.setSleepingPlaces(apartment.getSleepingPlaces());
-            apartmentDto.setUserId(apartment.getUserId());
+            apartmentDto.setStatusId(apartment.getStatusId());
             apartmentsDto.add(apartmentDto);
         });
         return apartmentsDto;
     }
 
     @Override
-    public List<ApartmentWithoutUserDto> getFreeApartmentsByHotelId(Integer id) {
-        var apartments = apartmentRepository.findByHotelIdId(id);
-        var apartmentsWithoutUserDto = new ArrayList<ApartmentWithoutUserDto>();
+    public List<FreeApartmentDto> getFreeApartmentsByHotelId(Integer id) {
+        var apartments = apartmentRepository.findByStatusId_Name("free");
+        var freeApartmentDto = new ArrayList<FreeApartmentDto>();
         apartments.forEach(apartment -> {
-            if (apartment.getUserId() == null) {
-                ApartmentWithoutUserDto apartmentDto = new ApartmentWithoutUserDto();
-                apartmentDto.setId(apartment.getId());
-                apartmentDto.setPrice(apartment.getPrice());
-                apartmentDto.setComfortableRank(apartment.getComfortableRank());
-                apartmentDto.setSleepingPlaces(apartment.getSleepingPlaces());
-                apartmentsWithoutUserDto.add(apartmentDto);
-            }
+            FreeApartmentDto apartmentDto = new FreeApartmentDto();
+            apartmentDto.setId(apartment.getId());
+            apartmentDto.setComfortableRank(apartment.getComfortableRank());
+            apartmentDto.setSleepingPlaces(apartment.getSleepingPlaces());
+            apartmentDto.setPrice(apartment.getPrice());
+            apartmentDto.setHotelId(apartment.getHotelId());
+            apartmentDto.setStatusId(apartment.getStatusId());
+            freeApartmentDto.add(apartmentDto);
+
         });
-        return apartmentsWithoutUserDto;
+        return freeApartmentDto;
     }
 }

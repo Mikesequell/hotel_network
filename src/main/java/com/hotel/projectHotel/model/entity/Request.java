@@ -10,11 +10,7 @@ import java.sql.Date;
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name = "comfortable_rank")
-    private Integer comfortableRank;
-    @Column(name = "sleeping_places")
-    private Integer sleepingPlaces;
+    private Long id;
     @Column(name = "arrival_date")
     private Date arrivalDate;
     @Column(name = "departure_date")
@@ -22,15 +18,12 @@ public class Request {
     @Column(name = "offered_price_for_payment")
     private Integer offeredPriceForPayment;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "status")
-    private Status status;
+    @JoinColumn(name = "status_id")
+    private Status statusId;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User userId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "offered_hotel_id")
-    private Hotel hotelId;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "offered_apartment_id")
+    @JoinColumn(name = "apartment_id")
     private Apartment apartmentId;
 }

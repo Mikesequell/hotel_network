@@ -1,12 +1,11 @@
 package com.hotel.projectHotel.dto;
 
-import com.hotel.projectHotel.model.entity.User;
+import com.hotel.projectHotel.model.entity.Hotel;
 import lombok.Data;
 
 @Data
-public class ApartmentWithoutUserDto {
-    private Integer id;
+public class ApartmentCreateRequestDto {
     private Integer comfortableRank;
     private Integer sleepingPlaces;
-    private Integer price;
+    private Hotel hotelId;
 }

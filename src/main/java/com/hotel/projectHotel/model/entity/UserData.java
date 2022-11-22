@@ -8,21 +8,17 @@ import javax.persistence.*;
 @Entity(name = "user_data")
 public class UserData {
     @Id
-    private Integer id;
+    private Long id;
     @MapsId
     @OneToOne
     @JoinColumn(name = "user_id")
     private User userId;
-
-//    @Id
-//    @Column(name = "user_id")
-//    int userId;
     @Column
-    String name;
+    private String name;
     @Column
-    String surname;
+    private String surname;
     @Column
-    String passport;
+    private String passport;
     @Column(name = "telephone_number")
-    String telephoneNumber;
+    private String telephoneNumber;
 }

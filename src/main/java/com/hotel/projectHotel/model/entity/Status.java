@@ -10,5 +10,5 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
-    private String status;
+    private String name;
 }

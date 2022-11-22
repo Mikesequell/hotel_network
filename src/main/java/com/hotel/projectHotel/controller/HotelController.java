@@ -16,7 +16,7 @@ public class HotelController {
     private final HotelService hotelService;
     private final ApartmentService apartmentService;
 
-    @GetMapping("/hotel")
+    @GetMapping("/hotelDetails")
     public String getHotel(@RequestParam Integer id, Model model) {
         var apartments = apartmentService.getAllApartmentsByHotelId(id);
         model.addAttribute("apartments", apartments);

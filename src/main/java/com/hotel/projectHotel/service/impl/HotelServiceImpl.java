@@ -32,14 +32,14 @@ public class HotelServiceImpl implements HotelService {
             hotelDto.setId(hotel.getId());
             hotelDto.setName(hotel.getName());
             hotelDto.setAddress(hotel.getAddress());
-            hotelDto.setFreeApartments(hotel.getFreeApartments());
+            hotelDto.setAllQuantityApartments(hotel.getAllQuantityApartments());
             hotelsDto.add(hotelDto);
         });
         return hotelsDto;
     }
 
     @Override
-    public List<HotelRequestDto> getHotelRequestDto() {
+    public List<HotelRequestDto> getHotelsRequestDto() {
         var hotels = hotelRepository.findAll();
         var hotelsRequestDto = new ArrayList<HotelRequestDto>();
         hotels.forEach(hotel -> {

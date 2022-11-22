@@ -10,24 +10,24 @@
 <%--        <label>Choose comfortable rank</label> <input name="comfortableRank"> <br>--%>
 <%--        <input type="submit" value="Create Request">--%>
 <%--    </form>--%>
-<c:url value="/createRequest" var="createRequestAction"/>
+<c:url value="/user/createRequest" var="createRequestAction"/>
 <spring_form:form method="post" action="${createRequestAction}" modelAttribute="createRequest">
-    <spring_form:label path="hotelId">Choose hotel </spring_form:label>
-    <spring_form:select path="hotelId">
+    <spring_form:label path="apartment.hotelId">Choose hotel </spring_form:label>
+    <spring_form:select path="apartment.hotelId">
         <c:forEach items="${hotels}" var="hotel">
             <spring_form:option value="${hotel.id}">${hotel.name}</spring_form:option> <br>
         </c:forEach>
     </spring_form:select> <br>
-    <spring_form:label path="comfortableRank">Choose comfortable rank </spring_form:label>
-    <spring_form:select path="comfortableRank">
+    <spring_form:label path="apartment.comfortableRank">Choose comfortable rank </spring_form:label>
+    <spring_form:select path="apartment.comfortableRank">
         <option value=1>1</option>
         <option value=2>2</option>
         <option value=3>3</option>
         <option value=4>4</option>
         <option value=5>5</option>
     </spring_form:select> <br>
-    <spring_form:label path="sleepingPlaces">Choose sleeping places </spring_form:label>
-    <spring_form:select path="sleepingPlaces">
+    <spring_form:label path="apartment.sleepingPlaces">Choose sleeping places </spring_form:label>
+    <spring_form:select path="apartment.sleepingPlaces">
         <option value=1>1</option>
         <option value=2>2</option>
         <option value=3>3</option>
