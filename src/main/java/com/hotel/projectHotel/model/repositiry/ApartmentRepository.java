@@ -10,6 +10,14 @@ import java.util.List;
 public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
     List<Apartment> findByHotelIdId(Integer id);
 
-    //    List<Apartment> findByHotelIdIdAndStatusIdNameIgnoreCase(Integer id, String name);
-    List<Apartment> findByStatusId_Name(String name);
+    List<Apartment> findByHotelId_IdAndStatusId_NameIgnoreCase(Integer id, String statusName);
+
+    List<Apartment> findByHotelId_IdAndComfortableRankAndSleepingPlacesAndStatusId_NameIgnoreCase(
+            Integer id, Integer comfortableRank, Integer sleepingPlaces, String statusName
+    );
+
+    List<Apartment> findByHotelId_IdAndComfortableRankAndSleepingPlacesAndStatusId_NameIgnoreCaseNotLike(
+            Integer id, Integer comfortableRank, Integer sleepingPlaces, String statusName
+    );
+//    List<Apartment> findByStatusId_Name(String name);
 }

@@ -34,7 +34,8 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     @Override
     public List<FreeApartmentDto> getFreeApartmentsByHotelId(Integer id) {
-        var apartments = apartmentRepository.findByStatusId_Name("free");
+//        var apartments = apartmentRepository.findByStatusId_Name("free");
+        var apartments = apartmentRepository.findByHotelId_IdAndStatusId_NameIgnoreCase(id, "free");
         var freeApartmentDto = new ArrayList<FreeApartmentDto>();
         apartments.forEach(apartment -> {
             FreeApartmentDto apartmentDto = new FreeApartmentDto();

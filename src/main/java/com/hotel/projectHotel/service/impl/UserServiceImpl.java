@@ -1,6 +1,8 @@
 package com.hotel.projectHotel.service.impl;
 
+import com.hotel.projectHotel.dto.UserDto;
 import com.hotel.projectHotel.model.repositiry.UserRepository;
+import com.hotel.projectHotel.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,10 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     private final UserRepository userRepository;
 
@@ -35,5 +38,18 @@ public class UserServiceImpl implements UserDetailsService {
         var authorities = new ArrayList<GrantedAuthority>();
         user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
         return authorities;
+    }
+
+    @Override
+    public List<UserDto> getAllUsers() {
+        var allUsers = userRepository.findAll();
+        var usersDto = new ArrayList<UserDto>();
+        allUsers.forEach(user -> {
+            var userDto = new UserDto();
+            userDto.setId(user.getId());
+            userDto.setUserName(userDto.getUserName());
+            usersDto.add(userDto);
+        });
+        return usersDto;
     }
 }

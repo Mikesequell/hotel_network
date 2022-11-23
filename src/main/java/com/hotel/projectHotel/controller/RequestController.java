@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.util.List;
@@ -24,7 +25,7 @@ public class RequestController {
     private final HotelService hotelService;
     private final UserRepository userRepository;
 
-    @GetMapping( value = "/user/showCreateRequest")
+    @GetMapping(value = "/user/showCreateRequest")
     public String showCreateRequest(Model model) {
         model.addAttribute("createRequest", new CreateRequestDto());
         model.addAttribute("hotels", hotelService.getHotelsRequestDto());
@@ -43,25 +44,35 @@ public class RequestController {
     }
 
     @GetMapping(value = "/admin/showAllRequests")
-    public String showAllRequests(Model model){
+    public String showAllRequests(Model model) {
         var allRequests = requestService.getAllRequests();
         model.addAttribute("allRequests", allRequests);
-        return "allRequests";
+        return "adminAllRequests";
     }
 
     @GetMapping(value = "/admin/showRequestsInProcessing")
-    public String showRequestsInProcessing(){
+    public String showRequestsInProcessing(Model model) {
+        var allRequestsInProcessing = requestService.getAllRequestsInProcessing();
+        model.addAttribute("allRequestsInProcessing", allRequestsInProcessing);
         return "";
     }
 
+    @GetMapping(value = "/admin/showAllUsers")
+    public String showAllUsers(Model model) {
+
+        return "adminShowAllUsers";
+    }
+
     @GetMapping(value = "/admin/showAllRequestsByUser")
-    public String showAllRequestsByUser(){
+    public String showAllRequestsByUser(@RequestParam Long id, Model model) {
+        var allRequestsByUserId = requestService.getAllRequestsByUser(id);
+        model.addAttribute("allRequestsByUserId", allRequestsByUserId);
         return "";
     }
 
 
     @GetMapping(value = "/user/showAllRequestsByUser")
-    public String showAllUserRequests(){
+    public String showAllUserRequests() {
         return "";
     }
 }

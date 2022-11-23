@@ -8,7 +8,7 @@
     <body>
     <a href="<c:url value="/user/showCreateRequest"/>">Create request</a> <br>
         <c:forEach items="${hotels}" var="hotel">
-            <a href="<c:url value="/hotel?id=${hotel.id}"/>">${hotel.name} - free address: ${hotel.address} - total apartments: ${hotel.allQuantityApartments}</a> <br>
+            <a href="<c:url value="/hotelDetails?id=${hotel.id}"/>">${hotel.name} - free address: ${hotel.address} - total apartments: ${hotel.allQuantityApartments}</a> <br>
         </c:forEach>
     </body>
 </html>

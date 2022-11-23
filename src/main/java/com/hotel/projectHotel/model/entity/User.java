@@ -11,8 +11,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String username;
-    String password;
+    private String username;
+    private String password;
     boolean enabled;
     boolean credentialsNonExpired;
     boolean accountNonExpired;

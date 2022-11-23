@@ -8,4 +8,6 @@ import java.util.List;
 public interface RequestService {
     void createRequest(CreateRequestDto createRequestDto);
     List<AdminRequestDto> getAllRequests();
+    List<AdminRequestDto> getAllRequestsInProcessing();
+    List<AdminRequestDto> getAllRequestsByUser(Long id);
 }

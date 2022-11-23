@@ -77,6 +77,7 @@ create table request
 
 INSERT INTO status (name) value ('created');
 INSERT INTO status (name) value ('in processing');
+INSERT INTO status (name) value ('response awaiting');
 INSERT INTO status (name) value ('awaiting payment');
 INSERT INTO status (name) value ('paid');
 INSERT INTO status (name) value ('cancelled');
