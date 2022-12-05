@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         allUsers.forEach(user -> {
             var userDto = new UserDto();
             userDto.setId(user.getId());
-            userDto.setUserName(userDto.getUserName());
+            userDto.setUsername(user.getUsername());
             usersDto.add(userDto);
         });
         return usersDto;

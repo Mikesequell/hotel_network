@@ -10,4 +10,5 @@ import java.util.List;
 public interface RequestRepository extends JpaRepository<Request, Integer> {
     List<Request> findByStatusId_NameIgnoreCase(String statusName);
     List<Request> findByUserId_Id(Long Id);
+    Request findById(Long id);
 }

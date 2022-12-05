@@ -46,8 +46,24 @@ public class ApartmentServiceImpl implements ApartmentService {
             apartmentDto.setHotelId(apartment.getHotelId());
             apartmentDto.setStatusId(apartment.getStatusId());
             freeApartmentDto.add(apartmentDto);
-
         });
         return freeApartmentDto;
+    }
+
+    @Override
+    public List<ApartmentDto> getAllApartments() {
+        var apartments = apartmentRepository.findAll();
+        var apartmentsDto = new ArrayList<ApartmentDto>();
+        apartments.forEach(apartment -> {
+            var apartmentDto = new ApartmentDto();
+            apartmentDto.setId(apartment.getId());
+            apartmentDto.setSleepingPlaces(apartment.getSleepingPlaces());
+            apartmentDto.setComfortableRank(apartment.getComfortableRank());
+            apartmentDto.setPrice(apartment.getPrice());
+            apartmentDto.setStatusId(apartment.getStatusId());
+            apartmentDto.setHotelId(apartment.getHotelId());
+            apartmentsDto.add(apartmentDto);
+        });
+        return apartmentsDto;
     }
 }

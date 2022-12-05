@@ -62,10 +62,6 @@
     </style>
 </head>
 <body>
-<div class="block-button">
-    <a class="button" href="<c:url value="/admin/showRequestsInProcessing"/>">Show requests in processing</a>
-    <a class="button" href="<c:url value="/admin/showAllUsers"/>">Show requests by user</a> <br>
-</div>
 <section class="section">
     <table>
         <thead>
@@ -79,7 +75,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${allRequests}" var="request">
+        <c:forEach items="${allRequestsInProcessing}" var="request">
             <tr>
                 <td>${request.id}</td>
                 <td>${request.userId.username}</td>
@@ -101,18 +97,10 @@
     </table>
 </section>
 
-<%--<c:forEach items="${allRequests}" var="request">--%>
-<%--    ${request.id} ----%>
-<%--    username:${request.userId.username} -- status:${request.statusId.name} -- arrival date:${request.arrivalDate}--%>
-<%--    -- departure date:${request.departureDate}--%>
-<%--    <button onclick="document.location='/admin/editRequestInProcessing?id=${request.id}'"--%>
-<%--            <c:if test="${request.statusId.name ne 'in processing'}">--%>
-<%--                disabled--%>
-<%--            </c:if>>Edit--%>
-<%--    </button>--%>
-<%--    <button onclick="document.location='/admin/viewRequestById?id=${request.id}'">View</button>--%>
-<%--    <br>--%>
 
+
+<%--<c:forEach items="${allRequestsInProcessing}" var="request">--%>
+<%--    ${request.id} -- username: ${request.userId.username} -- status: ${request.statusId.name} -- arrival date: ${request.arrivalDate} -- departure date: ${request.departureDate} </a> <br>--%>
 <%--</c:forEach>--%>
 </body>
 </html>

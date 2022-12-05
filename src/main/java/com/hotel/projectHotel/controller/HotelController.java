@@ -27,6 +27,9 @@ public class HotelController {
     public String getAllHotels(Model model) {
         var allHotels = hotelService.getAllHotels();
         model.addAttribute("hotels", allHotels);
+        var allApartments = apartmentService.getAllApartments();
+        model.addAttribute("allApartments", allApartments);
+
         return "listOfHotels";
     }
 }

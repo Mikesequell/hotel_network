@@ -19,5 +19,14 @@ public interface ApartmentRepository extends JpaRepository<Apartment, Integer> {
     List<Apartment> findByHotelId_IdAndComfortableRankAndSleepingPlacesAndStatusId_NameIgnoreCaseNotLike(
             Integer id, Integer comfortableRank, Integer sleepingPlaces, String statusName
     );
+
+    List<Apartment> findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCase(Integer id, Integer sleepingPlaces, String statusName);
+
+    List<Apartment> findBySleepingPlacesAndStatusId_NameIgnoreCase(Integer sleepingPlaces, String statusName);
+
+    List<Apartment> findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCaseNotLike(Integer id, Integer sleepingPlaces, String statusName);
+
+    Apartment findById(Long id);
+
 //    List<Apartment> findByStatusId_Name(String name);
 }

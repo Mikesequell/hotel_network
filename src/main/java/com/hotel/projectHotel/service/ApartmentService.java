@@ -8,4 +8,6 @@ import java.util.List;
 public interface ApartmentService {
     List<ApartmentDto> getAllApartmentsByHotelId(Integer id);
     List<FreeApartmentDto> getFreeApartmentsByHotelId(Integer id);
+
+    List<ApartmentDto> getAllApartments();
 }

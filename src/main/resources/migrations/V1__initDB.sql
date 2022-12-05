@@ -89,50 +89,50 @@ INSERT INTO hotel (name, address, all_quantity_apartments)
 values ('First Hotel', 'ul. Tut 10', '10');
 
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (1, 1, 300, 7, 1);
+values (1, 1, 300, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (2, 1, 400, 7, 1);
+values (2, 1, 400, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 800, 7, 1);
+values (3, 2, 800, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 800, 7, 1);
+values (3, 2, 800, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 800, 7, 1);
+values (3, 2, 800, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 2, 800, 7, 1);
+values (4, 2, 800, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 2, 800, 7, 1);
+values (4, 2, 800, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 3, 1000, 7, 1);
+values (4, 3, 1000, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 3, 1000, 7, 1);
+values (4, 3, 1000, 8, 1);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (5, 3, 1300, 7, 1);
+values (5, 3, 1300, 8, 1);
 
 
 INSERT INTO hotel (name, address, all_quantity_apartments)
 values ('Second Hotel', 'ul. Tam 2a', '10');
 
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (1, 1, 800, 7, 2);
+values (1, 1, 800, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (2, 1, 900, 7, 2);
+values (2, 1, 900, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 1300, 7, 2);
+values (3, 2, 1300, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 1300, 7, 2);
+values (3, 2, 1300, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (3, 2, 1300, 7, 2);
+values (3, 2, 1300, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 2, 1300, 7, 2);
+values (4, 2, 1300, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 2, 1300, 7, 2);
+values (4, 2, 1300, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 3, 1500, 7, 2);
+values (4, 3, 1500, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (4, 3, 1500, 7, 2);
+values (4, 3, 1500, 8, 2);
 INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hotel_id)
-values (5, 3, 1800, 7, 2);
+values (5, 3, 1800, 8, 2);
 
 
 INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)

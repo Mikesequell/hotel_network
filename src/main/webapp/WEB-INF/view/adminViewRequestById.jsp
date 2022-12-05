@@ -6,8 +6,6 @@
 
 </head>
 <body>
-<c:forEach items="${allRequests}" var="request">
-    ${request.id} -- status:${request.status} -- arrival date:${request.arrivalDate} -- departure date:${request.departureDate} </a> <br>
-</c:forEach>
+
 </body>
 </html>
