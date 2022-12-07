@@ -7,6 +7,7 @@ public class RequestPrototype {
     public static Request getRequest() {
         Request request = new Request();
         request.setId(3L);
+        request.setStatusId(StatusPrototype.getStatus());
         return request;
     }
 }
