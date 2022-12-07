@@ -7,11 +7,13 @@ import com.hotel.projectHotel.model.repositiry.HotelRepository;
 import com.hotel.projectHotel.model.repositiry.UserRepository;
 import com.hotel.projectHotel.service.HotelService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class HotelServiceImpl implements HotelService {
@@ -19,12 +21,20 @@ public class HotelServiceImpl implements HotelService {
     private final HotelRepository hotelRepository;
 
     @Override
-    public Hotel findById(Integer id) {
-        return hotelRepository.findById(id).get();
+    public HotelDto findById(Integer id) {
+        log.info("Finding hotel by id");
+        var hotel = hotelRepository.findById(id).get();
+        HotelDto hotelDto = new HotelDto();
+        hotelDto.setId(hotel.getId());
+        hotelDto.setAddress(hotel.getAddress());
+        hotelDto.setName(hotel.getName());
+        hotelDto.setAllQuantityApartments(hotel.getAllQuantityApartments());
+        return hotelDto;
     }
 
     @Override
     public List<HotelDto> getAllHotels() {
+        log.info("Getting all hotels");
         var hotels = hotelRepository.findAll();
         var hotelsDto = new ArrayList<HotelDto>();
         hotels.forEach(hotel -> {

@@ -5,11 +5,13 @@ import com.hotel.projectHotel.dto.FreeApartmentDto;
 import com.hotel.projectHotel.model.repositiry.ApartmentRepository;
 import com.hotel.projectHotel.service.ApartmentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class ApartmentServiceImpl implements ApartmentService {
@@ -18,6 +20,7 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     @Override
     public List<ApartmentDto> getAllApartmentsByHotelId(Integer id) {
+        log.info("Getting all apartments by hotel id");
         var apartments = apartmentRepository.findByHotelIdId(id);
         var apartmentsDto = new ArrayList<ApartmentDto>();
         apartments.forEach(apartment -> {
@@ -34,6 +37,7 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     @Override
     public List<FreeApartmentDto> getFreeApartmentsByHotelId(Integer id) {
+        log.info("Getting free apartments by hotel id");
 //        var apartments = apartmentRepository.findByStatusId_Name("free");
         var apartments = apartmentRepository.findByHotelId_IdAndStatusId_NameIgnoreCase(id, "free");
         var freeApartmentDto = new ArrayList<FreeApartmentDto>();
@@ -52,6 +56,7 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     @Override
     public List<ApartmentDto> getAllApartments() {
+        log.info("Getting all apartments");
         var apartments = apartmentRepository.findAll();
         var apartmentsDto = new ArrayList<ApartmentDto>();
         apartments.forEach(apartment -> {

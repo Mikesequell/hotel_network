@@ -4,6 +4,7 @@ import com.hotel.projectHotel.dto.UserDto;
 import com.hotel.projectHotel.model.repositiry.UserRepository;
 import com.hotel.projectHotel.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -42,6 +44,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public List<UserDto> getAllUsers() {
+        log.info("Getting all users");
         var allUsers = userRepository.findAll();
         var usersDto = new ArrayList<UserDto>();
         allUsers.forEach(user -> {

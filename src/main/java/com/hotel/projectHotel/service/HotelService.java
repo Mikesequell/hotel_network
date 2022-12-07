@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public interface HotelService {
-    Hotel findById(Integer id);
+    HotelDto findById(Integer id);
     List<HotelDto> getAllHotels();
     List<HotelRequestDto> getHotelsRequestDto();
 }

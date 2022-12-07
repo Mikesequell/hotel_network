@@ -63,7 +63,7 @@
 </head>
 <body>
 <a>Choose user<a/> <br>
-
+<%--    Вывод юзеров таблицей, с количеством реквестом--%>
     <c:forEach items="${users}" var="user">
     <a href="<c:url value="/admin/showAllRequestsByUser?id=${user.id}"/>">${user.username}</a> <br>
     </c:forEach>

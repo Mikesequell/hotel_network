@@ -10,11 +10,13 @@ import com.hotel.projectHotel.model.repositiry.StatusRepository;
 import com.hotel.projectHotel.service.RequestService;
 import com.hotel.projectHotel.utils.CalculationNumberDays;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class RequestServiceImpl implements RequestService {
@@ -24,6 +26,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void createRequest(CreateRequestDto requestDto) {
+        log.info("Creating new request");
         var request = new Request();
         List<Apartment> apartmentsFree = searchFreeApartmentsByHotelComfortableRankSleepingPlaces(requestDto);
         if (apartmentsFree.size() != 0) {
@@ -103,6 +106,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<AdminRequestDto> getAllRequests() {
+        log.info("Getting all requests");
         var allRequests = requestRepository.findAll();
         var allAdminRequestsDto = new ArrayList<AdminRequestDto>();
         allRequests.forEach(request -> {
@@ -121,6 +125,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<AdminRequestDto> getAllRequestsInProcessing() {
+        log.info("Getting all requests in processing");
         var allRequestsInProcessing = requestRepository.findByStatusId_NameIgnoreCase("in processing");
         var allAdminRequestsInProcessingDto = new ArrayList<AdminRequestDto>();
         allRequestsInProcessing.forEach(request -> {
@@ -139,6 +144,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<AdminRequestDto> getAllRequestsByUser(Long id) {
+        log.info("Getting all requests by user id");
         var allRequestsByUserId = requestRepository.findByUserId_Id(id);
         var allAdminRequestsInprocessingDto = new ArrayList<AdminRequestDto>();
         allRequestsByUserId.forEach(request -> {
@@ -157,6 +163,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public AdminRequestDto getById(Long id) {
+        log.info("Getting request by id");
         var request = requestRepository.findById(id);
         var adminRequestDto = new AdminRequestDto();
         adminRequestDto.setId(request.getId());
@@ -171,6 +178,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void submitRequestEdit(AdminRequestDto adminRequestDto) {
+        log.info("Submitting request edit");
         var request = requestRepository.findById(adminRequestDto.getId());
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("response awaiting"));
         request.setApartmentId(apartmentRepository.findById(adminRequestDto.getApartmentId().getId()));
@@ -182,6 +190,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void applyRequest(AdminRequestDto adminRequestDto) {
+        log.info("Applying request");
         Request request = requestRepository.findById(adminRequestDto.getId());
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("awaiting payment"));
         requestRepository.saveAndFlush(request);
@@ -189,6 +198,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void payRequest(AdminRequestDto adminRequestDto) {
+        log.info("Paying request");
         Request request = requestRepository.findById(adminRequestDto.getId());
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("paid"));
         request.getApartmentId().setStatusId(statusRepository.getByNameLikeIgnoreCase("occupied"));
@@ -197,6 +207,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void cancelRequest(AdminRequestDto adminRequestDto) {
+        log.info("Cancelling request");
         Request request = requestRepository.findById(adminRequestDto.getId());
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("cancelled"));
         requestRepository.saveAndFlush(request);
