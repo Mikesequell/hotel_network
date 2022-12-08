@@ -69,39 +69,35 @@ public class RequestServiceImpl implements RequestService {
     }
 
     private List<Apartment> searchFreeApartmentsByHotelComfortableRankSleepingPlaces(CreateRequestDto requestDto) {
-        List<Apartment> apartmentsFree = apartmentRepository.findByHotelId_IdAndComfortableRankAndSleepingPlacesAndStatusId_NameIgnoreCase(
+        return apartmentRepository.findByHotelId_IdAndComfortableRankAndSleepingPlacesAndStatusId_NameIgnoreCase(
                 requestDto.getApartment().getHotelId().getId(),
                 requestDto.getApartment().getComfortableRank(),
                 requestDto.getApartment().getSleepingPlaces(),
                 "free"
         );
-        return apartmentsFree;
     }
 
     private List<Apartment> searchFreeApartmentsByHotelSleepingPlaces(CreateRequestDto requestDto) {
-        List<Apartment> apartmentsFree = apartmentRepository.findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCase(
+        return apartmentRepository.findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCase(
                 requestDto.getApartment().getHotelId().getId(),
                 requestDto.getApartment().getSleepingPlaces(),
                 "free"
         );
-        return apartmentsFree;
     }
 
     private List<Apartment> searchFreeApartmentsBySleepingPlaces(CreateRequestDto requestDto) {
-        List<Apartment> apartmentsFree = apartmentRepository.findBySleepingPlacesAndStatusId_NameIgnoreCase(
+        return apartmentRepository.findBySleepingPlacesAndStatusId_NameIgnoreCase(
                 requestDto.getApartment().getSleepingPlaces(),
                 "free"
         );
-        return apartmentsFree;
     }
 
     private List<Apartment> searchAnyApartmentsByHotelSleepingPlaces(CreateRequestDto requestDto) {
-        List<Apartment> apartmentsFree = apartmentRepository.findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCaseNotLike(
+        return apartmentRepository.findByHotelId_IdAndSleepingPlacesAndStatusId_NameIgnoreCaseNotLike(
                 requestDto.getApartment().getHotelId().getId(),
                 requestDto.getApartment().getSleepingPlaces(),
                 "free"
         );
-        return apartmentsFree;
     }
 
     @Override
@@ -211,5 +207,14 @@ public class RequestServiceImpl implements RequestService {
         Request request = requestRepository.findById(adminRequestDto.getId());
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("cancelled"));
         requestRepository.saveAndFlush(request);
+    }
+
+    @Override
+    public void completeRequest(Long id) {
+        log.info("Completing request");
+        Request request = requestRepository.findById(id);
+        request.setStatusId(statusRepository.getByNameLikeIgnoreCase("completed"));
+        Apartment apartment = apartmentRepository.findById(request.getApartmentId().getId());
+        apartment.setStatusId(statusRepository.getByNameLikeIgnoreCase("free"));
     }
 }

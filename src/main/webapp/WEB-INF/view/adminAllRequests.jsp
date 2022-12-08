@@ -32,9 +32,11 @@
         .block-button {
             margin: 20px;
         }
+
         .section {
             padding: 20px;
         }
+
         table {
             table-layout: fixed;
             /*width: 100%;*/
@@ -93,6 +95,12 @@
                             </c:if>>Edit
                     </button>
                     <button class="button" onclick="document.location='/admin/viewRequestById?id=${request.id}'">View
+                    </button>
+                    <button class="button" onclick="document.location='/admin/completeRequest?id=${request.id}'"
+                            <c:if test="${request.statusId.name ne 'paid'}">
+                                disabled
+                            </c:if>>
+                        Complete
                     </button>
                 </td>
             </tr>

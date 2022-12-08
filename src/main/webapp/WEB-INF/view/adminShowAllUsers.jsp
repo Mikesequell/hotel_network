@@ -36,6 +36,7 @@
             padding: 20px;
         }
         table {
+            margin: 20px;
             table-layout: fixed;
             /*width: 100%;*/
             border-collapse: collapse;
@@ -57,15 +58,35 @@
             border-top: 1px solid black;
             border-collapse: collapse;
         }
+        .text {
+            margin: 10px;
+        }
 
 
     </style>
 </head>
 <body>
-<a>Choose user<a/> <br>
+<a class="text">Choose user<a/> <br>
 <%--    Вывод юзеров таблицей, с количеством реквестом--%>
-    <c:forEach items="${users}" var="user">
-    <a href="<c:url value="/admin/showAllRequestsByUser?id=${user.id}"/>">${user.username}</a> <br>
-    </c:forEach>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${users}" var="user">
+            <tr>
+                <td><a href="<c:url value="/admin/showAllRequestsByUser?id=${user.id}"/>">${user.id}</a></td>
+                <td><a href="<c:url value="/admin/showAllRequestsByUser?id=${user.id}"/>">${user.username}</a></td>
+
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+<%--    <c:forEach items="${users}" var="user">--%>
+<%--    <a href="<c:url value="/admin/showAllRequestsByUser?id=${user.id}"/>">${user.username}</a> <br>--%>
+<%--    </c:forEach>--%>
 </body>
 </html>

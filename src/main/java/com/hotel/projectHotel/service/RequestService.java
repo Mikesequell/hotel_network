@@ -19,6 +19,10 @@ public interface RequestService {
     void submitRequestEdit(AdminRequestDto adminRequestDto);
 
     void applyRequest(AdminRequestDto adminRequestDto);
+
     void payRequest(AdminRequestDto adminRequestDto);
+
     void cancelRequest(AdminRequestDto adminRequestDto);
+
+    void completeRequest(Long id);
 }

@@ -127,11 +127,18 @@ public class RequestController {
 
     @GetMapping(value = "/admin/viewRequestById")
     public String viewRequestById(@RequestParam Long id, Model model) {
-
+        var request = requestService.getById(id);
+        model.addAttribute("request", request);
         return "adminViewRequestById";
     }
 
-
+    @GetMapping(value = "admin/completeRequest")
+    public String completeRequest(@RequestParam Long id, Model model) {
+        requestService.completeRequest(id);
+        var allRequests = requestService.getAllRequests();
+        model.addAttribute("allRequests", allRequests);
+        return "adminAllRequests";
+    }
 
 
 }

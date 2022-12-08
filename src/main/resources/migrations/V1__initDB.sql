@@ -139,7 +139,11 @@ INSERT INTO user (username, password, enabled, credentials_non_expired, account_
 VALUES ('admin', '$2a$12$TK3q.SPndYjzZRZ8ZEEh5.iggVGIqA2./JW.zwuKUYWi8XTZfic4S', 1, 1, 1, 1);
 
 INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
-VALUES ('user', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
+VALUES ('user1', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
+INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+VALUES ('user2', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
+INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+VALUES ('user3', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
 
 INSERT INTO role(name) value ('ROLE_ADMIN');
 INSERT INTO role(name) value ('ROLE_USER');
@@ -151,3 +155,7 @@ INSERT INTO users_roles (user_id, role_id)
 VALUES ('1', '2');
 INSERT INTO users_roles (user_id, role_id)
 VALUES ('2', '2');
+INSERT INTO users_roles (user_id, role_id)
+VALUES ('3', '2');
+INSERT INTO users_roles (user_id, role_id)
+VALUES ('4', '2');

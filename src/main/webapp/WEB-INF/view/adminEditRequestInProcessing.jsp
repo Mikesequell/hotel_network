@@ -117,8 +117,7 @@
             <ul class="list hidden">
                 <c:forEach items="${freeApartments}" var="apartment">
                     <c:if test="${apartment.sleepingPlaces eq 1}">
-                        <li class="list-item">id: ${apartment.id} -- sleeping places: ${apartment.sleepingPlaces} --
-                            status: ${apartment.statusId.name}</li>
+                        <li class="list-item">id: ${apartment.id} -- status: ${apartment.statusId.name}</li>
                     </c:if>
                 </c:forEach>
             </ul>
@@ -130,8 +129,7 @@
             <ul class="list hidden">
                 <c:forEach items="${freeApartments}" var="apartment">
                     <c:if test="${apartment.sleepingPlaces eq 2}">
-                        <li class="list-item">id: ${apartment.id} -- sleeping places: ${apartment.sleepingPlaces} --
-                            status: ${apartment.statusId.name}</li>
+                        <li class="list-item">id: ${apartment.id} -- status: ${apartment.statusId.name}</li>
                     </c:if>
                 </c:forEach>
             </ul>
@@ -143,8 +141,7 @@
             <ul class="list hidden">
                 <c:forEach items="${freeApartments}" var="apartment">
                     <c:if test="${apartment.sleepingPlaces eq 3}">
-                        <li class="list-item">id: ${apartment.id} -- sleeping places: ${apartment.sleepingPlaces} --
-                            status: ${apartment.statusId.name}</li>
+                        <li class="list-item">id: ${apartment.id} -- status: ${apartment.statusId.name}</li>
                     </c:if>
                 </c:forEach>
             </ul>

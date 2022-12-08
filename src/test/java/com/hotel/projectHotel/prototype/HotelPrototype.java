@@ -7,6 +7,7 @@ public class HotelPrototype {
         Hotel hotel = new Hotel();
         hotel.setAddress("test address");
         hotel.setName("test_name");
+        hotel.setAllQuantityApartments(10L);
         return hotel;
     }
 }
