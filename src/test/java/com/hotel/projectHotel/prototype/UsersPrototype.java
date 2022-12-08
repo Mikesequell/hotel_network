@@ -11,6 +11,12 @@ public class UsersPrototype {
     public static User getUser() {
         User user = new User();
         user.setUsername("test");
+        user.setPassword("test");
+        user.setEnabled(true);
+        user.setCredentialsNonExpired(true);
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+
 
         List<Role> userRoles = new ArrayList<>();
         userRoles.add(RolePrototype.getRole());

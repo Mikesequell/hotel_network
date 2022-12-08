@@ -216,5 +216,7 @@ public class RequestServiceImpl implements RequestService {
         request.setStatusId(statusRepository.getByNameLikeIgnoreCase("completed"));
         Apartment apartment = apartmentRepository.findById(request.getApartmentId().getId());
         apartment.setStatusId(statusRepository.getByNameLikeIgnoreCase("free"));
+        requestRepository.saveAndFlush(request);
+        apartmentRepository.saveAndFlush(apartment);
     }
 }

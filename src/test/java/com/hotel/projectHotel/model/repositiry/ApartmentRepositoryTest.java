@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,10 +22,11 @@ class ApartmentRepositoryTest {
 
     @Test
     void findById() {
-        apartmentRepository.save(ApartmentPrototype.getApartments());
-        Apartment foundApartment = apartmentRepository.findById(ApartmentPrototype.getApartments().getId());
+        apartmentRepository.saveAndFlush(ApartmentPrototype.getApartments());
+        Apartment foundApartment = apartmentRepository.findById(1L);
+//        List<Apartment> all = apartmentRepository.findAll();
         assertThat(foundApartment).isNotNull();
-//        assertThat(foundApartment.getId()).isEqualTo(ApartmentPrototype.getApartments().getId());
+        assertThat(foundApartment.getId()).isEqualTo(1L);
 
     }
 }

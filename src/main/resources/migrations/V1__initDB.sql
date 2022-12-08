@@ -1,4 +1,4 @@
-create table user
+create table users
 (
     id                      bigint auto_increment primary key,
     username                varchar(255) not null,
@@ -20,12 +20,12 @@ create table users_roles
     user_id bigint not null,
     role_id int    not null,
     primary key (user_id, role_id),
-    foreign key (user_id) references user (id),
+    foreign key (user_id) references users (id),
     foreign key (role_id) references role (id)
 
 );
 
-create table status
+create table statuses
 (
     id   int auto_increment primary key,
     name varchar(256) not null
@@ -46,7 +46,7 @@ create table user_data
     surname          varchar(64) not null,
     passport         varchar(64) not null,
     telephone_number varchar(64) not null,
-    foreign key (user_id) references user (id)
+    foreign key (user_id) references users (id)
 );
 
 create table apartment
@@ -57,7 +57,7 @@ create table apartment
     price            int,
     status_id        int,
     hotel_id         int not null,
-    foreign key (status_id) references status (id),
+    foreign key (status_id) references statuses (id),
     foreign key (hotel_id) references hotel (id)
 );
 
@@ -70,20 +70,20 @@ create table request
     status_id                 int,
     user_id                   bigint not null,
     apartment_id              bigint,
-    foreign key (status_id) references status (id),
+    foreign key (status_id) references statuses (id),
     foreign key (apartment_id) references apartment (id),
-    foreign key (user_id) references user (id)
+    foreign key (user_id) references users (id)
 );
 
-INSERT INTO status (name) value ('created');
-INSERT INTO status (name) value ('in processing');
-INSERT INTO status (name) value ('response awaiting');
-INSERT INTO status (name) value ('awaiting payment');
-INSERT INTO status (name) value ('paid');
-INSERT INTO status (name) value ('cancelled');
-INSERT INTO status (name) value ('completed');
-INSERT INTO status (name) value ('free');
-INSERT INTO status (name) value ('occupied');
+INSERT INTO statuses (name) value ('created');
+INSERT INTO statuses (name) value ('in processing');
+INSERT INTO statuses (name) value ('response awaiting');
+INSERT INTO statuses (name) value ('awaiting payment');
+INSERT INTO statuses (name) value ('paid');
+INSERT INTO statuses (name) value ('cancelled');
+INSERT INTO statuses (name) value ('completed');
+INSERT INTO statuses (name) value ('free');
+INSERT INTO statuses (name) value ('occupied');
 
 INSERT INTO hotel (name, address, all_quantity_apartments)
 values ('First Hotel', 'ul. Tut 10', '10');
@@ -135,14 +135,14 @@ INSERT INTO apartment (comfortable_rank, sleeping_places, price, status_id, hote
 values (5, 3, 1800, 8, 2);
 
 
-INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+INSERT INTO users (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
 VALUES ('admin', '$2a$12$TK3q.SPndYjzZRZ8ZEEh5.iggVGIqA2./JW.zwuKUYWi8XTZfic4S', 1, 1, 1, 1);
 
-INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+INSERT INTO users (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
 VALUES ('user1', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
-INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+INSERT INTO users (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
 VALUES ('user2', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
-INSERT INTO user (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
+INSERT INTO users (username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked)
 VALUES ('user3', '$2a$12$gjrRSj/jQukJi/NMhwSXzOdOEk/90eMc/ITHBmiKCBlnuNm9xJlqS', 1, 1, 1, 1);
 
 INSERT INTO role(name) value ('ROLE_ADMIN');
